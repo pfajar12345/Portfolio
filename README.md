@@ -1,4 +1,4 @@
-Portfolio
+# Portfolio
 Welcome! This repository serves as a strategic support system and a documented journey of my continuous growth as a Digital Business Innovation student. It bridges business fluency with technical execution, showcasing readiness for academia, industry, and technopreneurship.
 
 Direct Access
