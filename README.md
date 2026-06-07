@@ -2,6 +2,7 @@
 Welcome! This repository serves as a strategic support system and a documented journey of my continuous growth as a Digital Business Innovation student. It bridges business fluency with technical execution, showcasing readiness for academia, industry, and technopreneurship.
 
 Direct Access
+
 [View / Download ATS CV (PDF)](https://pfajar12345.github.io/Portfolio/CV%20Fajar%20Wibisana%20Gandra%20Putra.pdf)
 
 [View / Download Full Business Portfolio (PDF)](https://pfajar12345.github.io/Portfolio/Portfolio_Fajar.pptx.pdf)
