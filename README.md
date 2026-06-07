@@ -3,6 +3,7 @@ Welcome! This repository serves as a strategic support system and a documented j
 
 Direct Access
 [View / Download ATS CV (PDF)](https://pfajar12345.github.io/Portfolio/CV%20Fajar%20Wibisana%20Gandra%20Putra.pdf)
+
 [View / Download Full Business Portfolio (PDF)](https://pfajar12345.github.io/Portfolio/Portfolio_Fajar.pptx.pdf)
 
 This portfolio demonstrates a conceptual and practical understanding of how professionals leverage enterprise technology to drive real-world digital transformation:
