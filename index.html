@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fajar Wibisana Gandra Putra — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0B1C3A;
+      --navy-mid:   #112548;
+      --teal:       #2EC4B6;
+      --purple:     #7B5EA7;
+      --orange:     #E8A838;
+      --white:      #FFFFFF;
+      --offwhite:   #F5F7FA;
+      --text:       #1A2A45;
+      --muted:      #5A6E8A;
+      --border:     #DDE3EC;
+      --card-bg:    #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--offwhite);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HERO (dark like portfolio header) ── */
+    .hero {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 80px 32px 72px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 24px;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--teal);
+      opacity: 0.5;
+    }
+
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-role {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 400;
+      margin-bottom: 32px;
+      letter-spacing: 0.01em;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .tag {
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 0.73rem;
+      font-weight: 500;
+      border: 1px solid rgba(46,196,182,0.35);
+      color: var(--teal);
+      background: rgba(46,196,182,0.08);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 6px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-teal  { background: var(--teal); color: var(--navy); }
+    .btn-ghost { background: transparent; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.25); }
+
+    /* ── BODY SECTIONS (light) ── */
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 32px;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    hr { border: none; height: 1px; background: var(--border); }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .about-text h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .about-text p {
+      color: var(--muted);
+      font-size: 0.87rem;
+      line-height: 1.85;
+      margin-bottom: 10px;
+    }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .stat-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 4px;
+    }
+    .stat-label { font-size: 0.71rem; color: var(--muted); line-height: 1.4; }
+
+    /* ── EXPERIENCE ── */
+    .timeline { display: flex; flex-direction: column; gap: 14px; }
+    .exp-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--teal);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+    .exp-company { font-weight: 700; font-size: 0.93rem; color: var(--navy); }
+    .exp-role { color: var(--teal); font-size: 0.78rem; font-weight: 600; margin-bottom: 8px; }
+    .exp-period {
+      font-size: 0.7rem;
+      color: var(--white);
+      background: var(--navy);
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .exp-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.75; }
+
+    /* ── ORGANIZATIONS ── */
+    .org-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .org-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--purple);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .org-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+    .org-name { font-weight: 700; font-size: 0.88rem; color: var(--navy); }
+    .org-role { color: var(--purple); font-size: 0.76rem; font-weight: 600; margin-bottom: 8px; }
+    .org-period {
+      font-size: 0.68rem;
+      color: var(--white);
+      background: var(--purple);
+      padding: 2px 9px;
+      border-radius: 100px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .org-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── PROJECTS ── */
+    .proj-list { display: flex; flex-direction: column; gap: 14px; }
+    .proj-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 26px;
+    }
+    .proj-badge {
+      display: inline-block;
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: rgba(46,196,182,0.12);
+      border: 1px solid rgba(46,196,182,0.3);
+      padding: 3px 11px;
+      border-radius: 100px;
+      margin-bottom: 9px;
+    }
+    .proj-title { font-weight: 700; font-size: 0.95rem; color: var(--navy); margin-bottom: 3px; }
+    .proj-sub { font-size: 0.74rem; color: var(--muted); font-style: italic; margin-bottom: 9px; }
+    .proj-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.75; }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .skill-group {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+    .skill-group h4 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-item {
+      font-size: 0.81rem;
+      color: var(--muted);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .skill-item:last-child { border-bottom: none; }
+
+    /* ── CONTACT (dark, like portfolio closing) ── */
+    .contact-section {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 72px 32px 64px;
+    }
+    .contact-section h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .contact-section p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.88rem;
+      margin-bottom: 44px;
+      font-style: italic;
+    }
+    .contact-cards {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy-mid);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 26px 28px;
+      text-decoration: none;
+      color: var(--white);
+      width: 170px;
+    }
+    .contact-card .icon {
+      width: 46px; height: 46px;
+      background: rgba(46,196,182,0.12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-card .icon svg {
+      width: 20px; height: 20px;
+      stroke: var(--teal); fill: none; stroke-width: 1.8;
+    }
+    .contact-card .c-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .contact-card .c-val {
+      font-size: 0.78rem;
+      color: var(--teal);
+      font-weight: 500;
+      text-align: center;
+      word-break: break-all;
+    }
+
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      padding: 20px 32px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    @media (max-width: 680px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .org-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .contact-cards { gap: 10px; }
+      .contact-card { width: 145px; padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="eyebrow">Open to Internship Opportunities</span>
+    <h1>Fajar Wibisana<br/>Gandra Putra</h1>
+    <p class="hero-role">Business Analyst Intern &nbsp;·&nbsp; Business Development &nbsp;·&nbsp; Technical Writer</p>
+    <div class="tags">
+      <span class="tag">Business Analysis</span>
+      <span class="tag">UML & System Design</span>
+      <span class="tag">Process Improvement</span>
+      <span class="tag">Operational Workflows</span>
+      <span class="tag">Technical Writing</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-teal" href="https://pfajar12345.github.io/Portfolio/Portfolio_Fajar.pptx.pdf" target="_blank">View Portfolio</a>
+      <a class="btn btn-ghost" href="https://pfajar12345.github.io/Portfolio/CV%20Fajar%20Wibisana%20Gandra%20Putra.pdf" target="_blank">Download CV</a>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section>
+    <p class="section-label">About</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Where business meets systems thinking</h2>
+        <p>Adaptable student specializing in community management and technology ecosystem development. Skilled in managing operational workflows and technical documentation, including scientific reports and information systems.</p>
+        <p>Proficient in UML system modeling with hands-on experience leading campus-scale communities, managing events, and coordinating organizational operations across Nippon Club BINUS and Binusian Gaming.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="stat-val">S.Bns + S.Kom</div>
+          <div class="stat-label">Double Degree · Business & Information System</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">BINUS</div>
+          <div class="stat-label">Bina Nusantara University · Digital Business Innovation</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">3 Projects</div>
+          <div class="stat-label">NoBuRi · NAFC · SUMATECH</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">4 Roles</div>
+          <div class="stat-label">Treasurer · PM · Community Coordinator · Journalist</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <p class="section-label">Work Experience</p>
+    <div class="timeline">
+      <div class="exp-card">
+        <div class="exp-head">
+          <div class="exp-company">PT. Sarin Ubud Wisata</div>
+          <span class="exp-period">Jan 2021 – Aug 2021</span>
+        </div>
+        <div class="exp-role">Back Office Admin</div>
+        <div class="exp-desc">Managed operational data accuracy through daily input of Purchase Orders (PO) and sales data into the company's ERP system. Monitored digital reputation via social media management and analysed customer reviews on Google Reviews to improve service quality.</div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-head">
+          <div class="exp-company">PT. Bisama Cargo</div>
+          <span class="exp-period">Jul 2019 – Feb 2020</span>
+        </div>
+        <div class="exp-role">Logistic Staff</div>
+        <div class="exp-desc">Conducted periodic inventory recording and distribution of stock goods, ensuring accurate and efficient supply chain operations.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- ORGANIZATIONS -->
+  <section>
+    <p class="section-label">Organizations</p>
+    <div class="org-grid">
+      <div class="org-card">
+        <div class="org-head">
+          <div class="org-name">Nippon Club BINUS Bandung</div>
+          <span class="org-period">2024–2025</span>
+        </div>
+        <div class="org-role">Treasurer · Regional Bandung</div>
+        <div class="org-desc">Managed all regional financial operations: cash flow recording and monthly financial reporting. Supported strategic decision-making based on fund availability.</div>
+      </div>
+      <div class="org-card">
+        <div class="org-head">
+          <div class="org-name">Nippon Club BINUS Bandung</div>
+          <span class="org-period">2023–2024</span>
+        </div>
+        <div class="org-role">Staff Journalist</div>
+        <div class="org-desc">Covered internal club activities, wrote event articles, and assisted with publication and documentation.</div>
+      </div>
+      <div class="org-card">
+        <div class="org-head">
+          <div class="org-name">Binusian Gaming</div>
+          <span class="org-period">2024–2025</span>
+        </div>
+        <div class="org-role">Community Coordinator</div>
+        <div class="org-desc">Managed campus gaming community by designing sustainable member engagement programs. Coordinated with the central board to maintain community health and growth.</div>
+      </div>
+      <div class="org-card">
+        <div class="org-head">
+          <div class="org-name">Binusian Gaming</div>
+          <span class="org-period">2023–2024</span>
+        </div>
+        <div class="org-role">Staff Community</div>
+        <div class="org-desc">Supported technical operations and project management for internal events. Managed OBS livestreaming, security, and tournament bracket creation (BINECHA & KMCup).</div>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- PROJECTS -->
+  <section>
+    <p class="section-label">Projects</p>
+    <div class="proj-list">
+      <div class="proj-card">
+        <span class="proj-badge">Business Analysis & System Design</span>
+        <div class="proj-title">SUMATECH – Web-Based Industrial Equipment System</div>
+        <div class="proj-sub">Advanced Business Application Development · Genap 2025/2026</div>
+        <div class="proj-desc">Identified 3 core pain points: manual inventory causing stock discrepancies, delayed COGS calculation, and lack of real-time managerial visibility. Produced full documentation: Activity Diagram (As-Is & To-Be), Use Case Diagram (12+ use cases), and Fully-Developed Use Case Descriptions. Handled all deliverables except video and poster.</div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-badge">Low-Code / Mendix</span>
+        <div class="proj-title">NAFC – Desktop Inventory Management System</div>
+        <div class="proj-sub">Digital Business Major Project · October 2024 – January 2025</div>
+        <div class="proj-desc">Built a desktop-based inventory management system for NAFC Muslim Wear using Mendix low-code platform. Designed domain model to define entity relationships and implemented business logic using Mendix microflows to automate inventory workflows.</div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-badge">Business Strategy & Branding</span>
+        <div class="proj-title">NoBuRi – Nori Burger Rice (F&B Brand)</div>
+        <div class="proj-sub">BINUS Business School Main Project · 2023 – Present</div>
+        <div class="proj-desc">Developed a modern Japanese-inspired food brand targeting students and young workers in Bandung. Created Business Model Canvas (BMC), formulated STP strategy (Segmentation, Targeting, Positioning), and conducted in-depth F&B industry trend analysis and competitor research.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- SKILLS -->
+  <section>
+    <p class="section-label">Skills</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Hard Skills</h4>
+        <div class="skill-item">UML System Modeling</div>
+        <div class="skill-item">Office Suite (Word, Excel, PPT)</div>
+        <div class="skill-item">Creative Tools (Figma, Canva)</div>
+        <div class="skill-item">Low-Code (Mendix)</div>
+        <div class="skill-item">Analytic Research</div>
+      </div>
+      <div class="skill-group">
+        <h4>Soft Skills</h4>
+        <div class="skill-item">Leadership</div>
+        <div class="skill-item">Project Management</div>
+        <div class="skill-item">Strategic Thinking</div>
+        <div class="skill-item">Adaptability</div>
+        <div class="skill-item">Stakeholder Communication</div>
+      </div>
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <div class="skill-item">Indonesian (Native)</div>
+        <div class="skill-item">English (Proficient)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (dark closing, like portfolio Thank You slide) -->
+  <div class="contact-section">
+    <h2>Thank You!</h2>
+    <p>Let's connect and build something impactful together.</p>
+    <div class="contact-cards">
+      <a class="contact-card" href="mailto:pfajar233@gmail.com">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        </div>
+        <span class="c-label">Email</span>
+        <span class="c-val">pfajar233@gmail.com</span>
+      </a>
+      <a class="contact-card" href="https://wa.me/628113895511" target="_blank">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <span class="c-label">WhatsApp</span>
+        <span class="c-val">+62 811 389 5511</span>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/fajar-wibisana-gandra-putra-13294028b/" target="_blank">
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <span class="c-label">LinkedIn</span>
+        <span class="c-val">Fajar Wibisana Gandra Putra</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Fajar Wibisana Gandra Putra &nbsp;·&nbsp; pfajar12345.github.io/Portfolio
+  </footer>
+
+</body>
+</html>
