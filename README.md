@@ -10,4 +10,4 @@ Direct Access
 This portfolio demonstrates a conceptual and practical understanding of how professionals leverage enterprise technology to drive real-world digital transformation:
 System Analysis & Design: Engineering academic artifacts such as structured UML diagrams, detailed flowcharts, and system workflows.
 Technical Proficiency: Foundational knowledge in Information Systems, Object-Oriented Programming (OOP), Cloud Computing, Network Security, and Practical AI applications.
-Business & Strategy: Technical risk analysis, scientific reports, and an analytical business consultant mindset.
+Business & Strategy: Technical risk analysis, scientific reports, and an analytical business consultant mindset
